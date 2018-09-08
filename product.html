@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>продукт</title>
+	<link rel="stylesheet" href="css/style.css">
+	
+</head>
+<body>
+	<div class="header-top">
+		<div class="container">
+			<div class="login-container">
+				<a href="javascript:void(0);" class="btn">вход</a>
+				<a href="javascript:void(0);" class="btn">регистрация</a>
+			</div>
+			<div class="cart-label-container"></div>
+		</div>
+	</div>
+	<header>
+		<div class="container">
+			<div class="title">
+				<h1>Магазин компьютерной книги</h1>
+				<div class="contacts">
+					<h6>телефоны (пн.-пт., 9<sup>00</sup>-19<sup>00</sup>):</h6>
+					<ul>
+						<li>322-223;</li>
+						<li>223-322;</li>
+					</ul>
+					<h6>email:</h6>
+					<ul>
+						<li>bookstore@example.com;</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<nav>
+			
+		</nav>
+	</header>
+	<main class="page-book-single">
+		<div class="container ">
+			
+		</div>
+	</main>
+	<script type="text/temlate" id="bookItemTemplate">
+		<div class="book-item-single">
+			<div class="book-summary">
+				<div class="zoom-small-image-container" data-image-src="<%= data.photoLarge %>">
+					<img src="<%= data.photoSmall %>" alt="">
+				</div>
+				<div class="book-item-info">
+					<h4><%= data.name %></h4>
+					<h5>
+						<% for(var j=0; j<data.authors.length; j++){%>
+							<%if(j>0){%>; <%}%>
+					
+							<%= data.authors[j] %>
+						<%}%>
+					</h5>
+					<p> Издательство: <%= data.publisher %>;<br> ISBN: <%= data.isbn %>,<br> <%= data.pagesQuantity %> стр.</p>
+					<p>Цена: <%= data.price %> грн.</p>
+					<form action="">
+						<input type="hidden" name="bookId" value="<%= data.id %>">
+						<button class="btn btn-bordered" type="submit">в корзину</button>
+					</form>
+				</div>
+			</div>
+			<div class="book-details">
+				<%= data.description %>
+			</div>
+		</div>
+	</script>
+
+	<script src="js/jquery-3.3.1.js"></script>
+	<script src="js/lodash.js"></script>
+	<script src="js/jquery.zoomImage.js"></script>
+	<script src="js/commonFunctions.js"></script>
+	<script src="js/filter/baseFilter.js"></script>
+	<script src="js/filter/draggableBlock.js"></script>
+	<script src="js/filter/range.js"></script>
+	<script src="js/filter/rangeFilter.js"></script>
+	<script src="js/filter/checkboxFilter.js"></script>
+	<script src="js/filter/commonFilter.js"></script>
+	<script src="js/data/books_data.js"></script>
+	<script src="js/cart/popUp.js"></script>
+	<script src="js/cart/confirmMessagebox.js"></script>
+	<script src="js/cart/infoMessagebox.js"></script>
+	<script src="js/cart/cartLine.js"></script>
+	<script src="js/cart/cartPopup.js"></script>
+	<script src="js/cart/cart.js"></script>
+	<script src="js/catalog/menu.js"></script>
+	<script src="js/catalog/catalog.js"></script>
+	<script>
+		'use strict'
+
+		
+		initProductPage();
+		window.addEventListener('load',function(e){
+			$('.zoom-small-image-container').zoomImage({innerZoom: false,shadow: false});
+		});
+		
+	</script>
+</body>
+</html>

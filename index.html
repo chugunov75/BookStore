@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>главная</title>
+  <link rel="stylesheet" href="css/style.css">
+  
+</head>
+<body>
+  <div class="header-top">
+    <div class="container">
+      <div class="login-container">
+        <a href="javascript:void(0);" class="btn">вход</a>
+        <a href="javascript:void(0);" class="btn">регистрация</a>
+      </div>
+      <div class="cart-label-container"></div>
+    </div>
+  </div>
+  <header>
+    <div class="container">
+      <div class="title">
+        <h1>Магазин компьютерной книги</h1>
+        <div class="contacts">
+          <h6>телефоны (пн.-пт., 9<sup>00</sup>-19<sup>00</sup>):</h6>
+          <ul>
+            <li>322-223;</li>
+            <li>223-322;</li>
+          </ul>
+          <h6>email:</h6>
+          <ul>
+            <li>bookstore@example.com;</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <nav>
+      
+    </nav>
+  </header>
+  <main class="page-home">
+    <div class="container">
+      
+    </div>
+  </main>
+
+  <script src="js/jquery-3.3.1.js"></script>
+  <script src="js/lodash.js"></script>
+  <script src="js/jquery.carousel.js"></script>
+  <script src="js/commonFunctions.js"></script>
+  <script src="js/filter/baseFilter.js"></script>
+  <script src="js/filter/draggableBlock.js"></script>
+  <script src="js/filter/range.js"></script>
+  <script src="js/filter/rangeFilter.js"></script>
+  <script src="js/filter/checkboxFilter.js"></script>
+  <script src="js/filter/commonFilter.js"></script>
+  <script src="js/data/books_data.js"></script>
+  <script src="js/cart/popUp.js"></script>
+  <script src="js/cart/confirmMessagebox.js"></script>
+  <script src="js/cart/infoMessagebox.js"></script>
+  <script src="js/cart/cartLine.js"></script>
+  <script src="js/cart/cartPopup.js"></script>
+  <script src="js/cart/cart.js"></script>
+  <script src="js/catalog/catalog.js"></script>
+  <script src="js/catalog/menu.js"></script>
+
+  <script type="text/temlate" id="homePageTemplate">
+    <% for(var i=0; i<data.length; i++){ %>
+      <h2>
+        <a href="catalog.html?sectionId=<%= data[i].section.catalogSectionId %>"><%= data[i].section.catalogSectionName %></a>
+      </h2>
+      <div class="carousel">
+        <ul>
+          <% for(var j=0; j<data[i].products.length; j++){ %>
+            <li>
+              <div class="carousel-item">
+                <div class="book-item-mini">
+                  <a href="product.html?bookId=<%= data[i].products[j].id %>" class="book-item-img-container">
+                    <img src="<%= data[i].products[j].photoSmall %>" alt="">
+                  </a>
+                  <h4>
+                    <a href="product.html?bookId=<%= data[i].products[j].id %>"><%= data[i].products[j].name %></a>
+                  </h4>
+                  <h5>
+                    <% for(var k=0; k<data[i].products[j].authors.length; k++){%>
+                      <%if(k>0){%>; <br><%}%>
+                  
+                      <%= data[i].products[j].authors[k] %>
+                    <%}%>
+                  </h5>
+                </div>
+              </div>
+            </li>
+          <%}%>
+        </ul>
+      </div>
+    <%}%>
+  </script>
+  <script>
+    'use strict'    
+    initHomePage();
+    window.addEventListener('load',function(e){
+      $('.carousel').carousel({cyclic: true,horisontal: true,autoscrolling: true});
+    });
+  </script>
+</body>
+</html>
