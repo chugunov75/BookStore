@@ -8,4 +8,4 @@
 
 Реализована карзина покупок
 
-Демо-версия: https://chugunov75.github.io/Zoom_Chugunov/
+Демо-версия: https://chugunov75.github.io/BookStore/
